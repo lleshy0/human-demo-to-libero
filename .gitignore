@@ -221,3 +221,5 @@ __marimo__/
 
 # Results
 results/*
+slurm/logs/
+outputs/

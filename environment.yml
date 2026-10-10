@@ -6,6 +6,7 @@ dependencies:
   - pip
   - pip:
       - torch
-      - lerobot[smolvla,libero]
+      - lerobot[smolvla,libero]==0.4.4
+      - transformers==4.57.6
       - opencv-python
       - mediapipe
