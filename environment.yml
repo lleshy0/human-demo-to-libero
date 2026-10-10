@@ -1,0 +1,11 @@
+name: human-demo-to-libero
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - torch
+      - lerobot[smolvla,libero]
+      - opencv-python
+      - mediapipe
