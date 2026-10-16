@@ -1,4 +1,4 @@
-"""Replay a saved LIBERO run. Usage: python preview.py --run results/<run>.json"""
+"""Replay a rollout saved by rollout.py in a window (needs a display)."""
 import argparse
 import json
 import os
@@ -12,7 +12,7 @@ CAMERAS = ("agentview_image", "robot0_eye_in_hand_image")
 
 
 def preview(run, fps=30, cameras=CAMERAS):
-    """Show `run` (the dict run_policy.py saves) by restoring each recorded sim state and rendering it."""
+    """Show `run` (saved by rollout.py) by restoring each recorded sim state and rendering it."""
     task = benchmark.get_benchmark_dict()[run["suite"]]().get_task(run["task_id"])
     bddl = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
     env = OffScreenRenderEnv(bddl_file_name=bddl, camera_heights=run["size"], camera_widths=run["size"])
@@ -34,7 +34,7 @@ def preview(run, fps=30, cameras=CAMERAS):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--run", required=True, help="results/<run>.json saved by run_policy.py")
+    p.add_argument("--run", required=True, help="runs/eval_<name>/videos/<episode>.json saved by rollout.py")
     p.add_argument("--fps", type=int, default=30)
     args = p.parse_args()
     with open(args.run) as f:
