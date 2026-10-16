@@ -221,3 +221,9 @@ __marimo__/
 
 # Results
 results/*
+outputs/*
+slurm/*
+
+# raw/derived data (human videos, demos, features) never committed
+data/
+runs/
