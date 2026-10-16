@@ -6,6 +6,11 @@ dependencies:
   - pip
   - pip:
       - torch
-      - lerobot[smolvla,libero]
+      - lerobot[libero]  # LIBERO + robosuite
+      - transformers>=4.57  # V-JEPA 2
+      - av
+      - h5py
+      - scipy
+      - pillow
       - opencv-python
-      - mediapipe
+      - mediapipe  # hand landmarks (diagnostics only)
